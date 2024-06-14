@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import Navbar from './modules/Navbar'
-import Cards from './modules/Cards'
+import Navbar from './Components/Navbar'
+import Cards from './Components/Cards'
 
 function App() {
   const [products, setProducts] = useState();
