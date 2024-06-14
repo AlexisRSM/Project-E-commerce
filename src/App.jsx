@@ -7,6 +7,7 @@ import Cards from './modules/Cards'
 
 function App() {
   const [products, setProducts] = useState();
+  const [output, setOutput] = useState(products)
 
   useEffect(() => {
     async function fetchData() {
@@ -14,6 +15,7 @@ function App() {
       const products = await response.json();
       console.log(products);
       setProducts(products);
+      setOutput(products)
     }
     fetchData();
   }, [])
@@ -21,10 +23,10 @@ function App() {
   return (
     products && (
       <>
-        <Navbar products={products} setProducts={setProducts} />
+        <Navbar products={products} setProducts={setProducts} output={output} setOutput={setOutput} />
         <div className='row my-2'>
         {
-              products.map((product) => {
+              output.map((product) => {
                 return <Cards product={product} />
               })}
         </div>

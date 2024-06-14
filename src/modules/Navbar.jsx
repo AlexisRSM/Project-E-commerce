@@ -1,11 +1,15 @@
 import '../Navbar.css';
-function Navbar({products,setProducts}) {
+
+import { useState } from 'react';
+function Navbar({products,setProducts, output, setOutput }) {
+    
+    
+ 
     function handleInput (event){
-        let text = event.target.value
-        let newProducts = (text.length > 0 ? products.filter(element =>{
-            return element.name.includes(text);
-        }) : products);
-        setProducts(newProducts);
+       let newProducts = event.target.value === 0 ? products : products.filter(el=>el.name.includes(event.target.value))
+        setOutput(newProducts)
+
+        
     }
     return (
         <div id='navBar'>
@@ -13,7 +17,7 @@ function Navbar({products,setProducts}) {
                 <div id='logoWrapper'>
                     <img id='logo' src="http://www.userlogos.org/files/logos/ArkAngel06/Amazon.png" />
                 </div>
-                <input onChange={handleInput} type="text" placeholder="Give me all your money" />
+                <input onChange={(event)=>{handleInput(event)}} type="text" placeholder="Give me all your money" />
                 <img id='backToSchool' src="http://blog.neurogistics.com/wp-content/uploads/2014/08/Back-To-School-Special-Banner.jpg" alt="" />
 
             </div>

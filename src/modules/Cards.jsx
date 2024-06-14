@@ -1,5 +1,5 @@
 function Cards({product}) {
-        console.log(product)
+        // console.log(product)
     
     return ( 
         
