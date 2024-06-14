@@ -21,7 +21,7 @@ function App() {
   return (
     products && (
       <>
-        <Navbar />
+        <Navbar products={products} setProducts={setProducts} />
         <div className='row my-2'>
         {
               products.map((product) => {

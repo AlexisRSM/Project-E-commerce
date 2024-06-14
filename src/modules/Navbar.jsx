@@ -1,21 +1,28 @@
 import '../Navbar.css';
-function Navbar() {
+function Navbar({products,setProducts}) {
+    function handleInput (event){
+        let text = event.target.value
+        let newProducts = (text.length > 0 ? products.filter(element =>{
+            return element.name.includes(text);
+        }) : products);
+        setProducts(newProducts);
+    }
     return (
         <div id='navBar'>
             <div id='topHalf'>
                 <div id='logoWrapper'>
                     <img id='logo' src="http://www.userlogos.org/files/logos/ArkAngel06/Amazon.png" />
                 </div>
-                <input type="text" placeholder="Give me all your money" />
+                <input onChange={handleInput} type="text" placeholder="Give me all your money" />
                 <img id='backToSchool' src="http://blog.neurogistics.com/wp-content/uploads/2014/08/Back-To-School-Special-Banner.jpg" alt="" />
 
-            </div>{/*  */}
+            </div>
 
 
 
 
-            <div id='bottomHalf'>
-                <div id='depart/*  */ment'>Departments</div>
+            <div id='bottomHalf' className='bottomHalf'>
+                <div id='department'>Departments</div>
                 <div id='sections'>
                     <div className="section">Your Amazon.com</div>
                     <div className="section">Today's Deals</div>
